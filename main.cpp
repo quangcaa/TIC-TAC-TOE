@@ -1,14 +1,15 @@
 #include <SDL2/SDL.h>
-#include <sDL2/SDL_image.h>
 #include <iostream>
 #include <cmath>
 
+#include "icon.h"
+
 using namespace std ;
 
-const int SCREEN_WIDTH = 500 ;
-const int SCREEN_HEIGHT = 500 ;
-const int BOARD_SIZE = 5 ;
-const int CELL_SIZE = 100 ;
+const int SCREEN_WIDTH = 600 ;
+const int SCREEN_HEIGHT = 600 ;
+const int BOARD_SIZE = 3 ;
+const int CELL_SIZE = 200 ;
 
 SDL_Window *window = nullptr ;
 SDL_Renderer *renderer = nullptr ;
@@ -36,17 +37,17 @@ void initSDL()
     renderer = SDL_CreateRenderer(window, -1, 0);
 }
 
-void loadIcon()
-{
-    // Load the icon image
-    icon = SDL_LoadBMP("image/icon.bmp");
+// void loadIcon()
+// {
+//     // Load the icon image
+//     icon = SDL_LoadBMP("image/icon.bmp");
 
-    // Set the color key of the surface to transparent
-    SDL_SetColorKey(icon, SDL_TRUE, SDL_MapRGB(icon->format, 255, 0, 255));
+//     // Set the color key of the surface to transparent
+//     SDL_SetColorKey(icon, SDL_TRUE, SDL_MapRGB(icon->format, 255, 0, 255));
 
-    // Set the icon of the window
-    SDL_SetWindowIcon(window, icon);
-}
+//     // Set the icon of the window
+//     SDL_SetWindowIcon(window, icon);
+// }
 
 
 void closeSDL()
@@ -70,15 +71,15 @@ void printImageOnCell(SDL_Renderer* renderer, SDL_Texture* texture, int cellSize
 
     // Load the BMP image file
     SDL_Surface* surface = SDL_LoadBMP("image/X.bmp");
-    if (surface == nullptr) {
-        printf("Failed to load image: %s\n", SDL_GetError());
+    if (surface == nullptr)
+    {
         return;
     }
 
     // Create a texture from the surface
     SDL_Texture* imageTexture = SDL_CreateTextureFromSurface(renderer, surface);
-    if (imageTexture == nullptr) {
-        printf("Failed to create texture: %s\n", SDL_GetError());
+    if (imageTexture == nullptr) 
+    {
         SDL_FreeSurface(surface);
         return;
     }
