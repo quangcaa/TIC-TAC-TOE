@@ -7,10 +7,10 @@
 
 using namespace std ;
 
-const int SCREEN_WIDTH = 600 ;
-const int SCREEN_HEIGHT = 600 ;
+const int SCREEN_WIDTH = 660 ;
+const int SCREEN_HEIGHT = 660 ;
 const int BOARD_SIZE = 3 ;
-const int CELL_SIZE = 200 ;
+const int CELL_SIZE = 220 ;
 
 SDL_Window *window = nullptr ;
 SDL_Renderer *renderer = nullptr ;
@@ -24,7 +24,6 @@ enum class Player
     X,
     O
 };
-
 
 Player board[BOARD_SIZE][BOARD_SIZE];
 
@@ -198,6 +197,9 @@ void handleEvent(SDL_Event event)
         }
     }
 }
+
+
+
 
 
 
