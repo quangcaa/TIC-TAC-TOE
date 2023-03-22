@@ -3,6 +3,7 @@
 #include <cmath>
 
 #include "icon.h"
+#include "checkWin.h"
 
 using namespace std ;
 
@@ -32,23 +33,10 @@ bool running = true;
 
 void initSDL()
 {
-    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Init(SDL_INIT_VIDEO );
     window = SDL_CreateWindow("Tic Tac Toe" , SDL_WINDOWPOS_CENTERED , SDL_WINDOWPOS_CENTERED , SCREEN_WIDTH , SCREEN_HEIGHT , SDL_WINDOW_SHOWN) ;
     renderer = SDL_CreateRenderer(window, -1, 0);
 }
-
-// void loadIcon()
-// {
-//     // Load the icon image
-//     icon = SDL_LoadBMP("image/icon.bmp");
-
-//     // Set the color key of the surface to transparent
-//     SDL_SetColorKey(icon, SDL_TRUE, SDL_MapRGB(icon->format, 255, 0, 255));
-
-//     // Set the icon of the window
-//     SDL_SetWindowIcon(window, icon);
-// }
-
 
 void closeSDL()
 {
@@ -56,6 +44,7 @@ void closeSDL()
 
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
+
     SDL_Quit();
 }
 
@@ -157,76 +146,6 @@ void drawBoard()
     SDL_RenderPresent(renderer);
 }
 
-bool checkWin(Player player)
-{
-    // Check rows
-    for (int i = 0; i < BOARD_SIZE; i++)
-    {
-        bool win = true;
-        for (int j = 0; j < BOARD_SIZE; j++)
-        {
-            if (board[i][j] != player)
-            {
-                win = false;
-                break;
-            }
-        }
-        if (win)
-        {
-            return true;
-        }
-    }
-
-    // Check columns
-    for (int j = 0; j < BOARD_SIZE; j++)
-    {
-        bool win = true;
-        for (int i = 0; i < BOARD_SIZE; i++)
-        {
-            if (board[i][j] != player)
-            {
-                win = false;
-                break;
-            }
-        }
-        if (win)
-        {
-            return true;
-        }
-    }
-
-    // Check diagonal 1
-    bool win = true;
-    for (int i = 0; i < BOARD_SIZE; i++)
-    {
-        if (board[i][i] != player)
-        {
-            win = false;
-            break;
-        }
-    }
-    if (win)
-    {
-        return true;
-    }
-
-    // Check diagonal 2
-    win = true;
-    for (int i = 0; i < BOARD_SIZE; i++)
-    {
-        if (board[i][BOARD_SIZE - i - 1] != player)
-        {
-            win = false;
-            break;
-        }
-    }
-    if (win)
-    {
-        return true;
-    }
-
-    return false;
-}
 
 int checkDraw(Player player)
 {
@@ -267,7 +186,7 @@ void handleEvent(SDL_Event event)
                 cout << "Draw !!!" ;
                 running = false ;
             }
-            if (checkWin(currentPlayer))
+            if (checkWin(currentPlayer , board))
             {
                 cout << "Player " << static_cast<int>(currentPlayer) << " wins!" << std::endl;
                 running = false;
@@ -279,6 +198,8 @@ void handleEvent(SDL_Event event)
         }
     }
 }
+
+
 
 int main(int argc, char *argv[])
 {
@@ -306,5 +227,6 @@ int main(int argc, char *argv[])
     }
 
     closeSDL();
+
     return 0;
 }
