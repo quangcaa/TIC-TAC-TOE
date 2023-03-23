@@ -4,6 +4,8 @@
 
 #include "icon.h"
 #include "checkWin.h"
+#include "checkDraw.h"
+#include "drawXO.h"
 
 using namespace std ;
 
@@ -15,8 +17,6 @@ const int CELL_SIZE = 200 ;
 SDL_Window *window = nullptr ;
 SDL_Renderer *renderer = nullptr ;
 SDL_Surface *icon = nullptr ;
-SDL_Texture *imageTexture = nullptr ;
-
 
 enum class Player
 {
@@ -24,7 +24,6 @@ enum class Player
     X,
     O
 };
-
 
 Player board[BOARD_SIZE][BOARD_SIZE];
 
@@ -49,41 +48,6 @@ void closeSDL()
 }
 
 
-void printImageOnCell(SDL_Renderer* renderer, SDL_Texture* texture, int cellSize, int boardSize, int mouseX, int mouseY)
-{
-    // Get the cell position
-    int cellX = mouseX / cellSize;
-    int cellY = mouseY / cellSize;
-
-    // Calculate the position and size of the image
-    SDL_Rect destRect = { cellX * cellSize, cellY * cellSize, cellSize, cellSize };
-
-    // Load the BMP image file
-    SDL_Surface* surface = SDL_LoadBMP("image/X.bmp");
-    if (surface == nullptr)
-    {
-        return;
-    }
-
-    // Create a texture from the surface
-    SDL_Texture* imageTexture = SDL_CreateTextureFromSurface(renderer, surface);
-    if (imageTexture == nullptr) 
-    {
-        SDL_FreeSurface(surface);
-        return;
-    }
-
-    // Free the surface
-    SDL_FreeSurface(surface);
-
-    // Render the texture on the cell
-    SDL_RenderCopy(renderer, imageTexture, nullptr, &destRect);
-
-    // Destroy the texture
-    SDL_DestroyTexture(imageTexture);
-}
-
-
 void drawBoard()
 {
     //background color
@@ -92,8 +56,7 @@ void drawBoard()
 
     //line color
     SDL_SetRenderDrawColor(renderer , 111 , 45 , 168 , 255) ;
-
-
+    //line width
     for (int i = 1; i < BOARD_SIZE; i++)
     {
         for(int j=0 ; j<=5 ; j++)
@@ -113,32 +76,15 @@ void drawBoard()
         {
             if (board[i][j] == Player::X)
             {
-                // SDL_Event event ;
-                // switch(event.type)
-                // {
-                //     case SDL_MOUSEBUTTONDOWN:
-                //     {
-                //         if(event.button.button == SDL_BUTTON_LEFT)
-                //         {
-                //             printImageOnCell(renderer , imageTexture , CELL_SIZE , 520 , event.button.x , event.button.y ) ;
-                //         }
-                //     }
-                // }
-                SDL_RenderDrawLine(renderer, i * CELL_SIZE + 10, j * CELL_SIZE + 10, (i + 1) * CELL_SIZE - 10, (j + 1) * CELL_SIZE - 10);
-                SDL_RenderDrawLine(renderer, i * CELL_SIZE + 10, (j + 1) * CELL_SIZE - 10, (i + 1) * CELL_SIZE - 10, j * CELL_SIZE + 10);
+                int cellX = i * CELL_SIZE;
+                int cellY = j * CELL_SIZE;
+                drawX(renderer, cellX, cellY, CELL_SIZE);
             }
             else if (board[i][j] == Player::O)
             {
-                int centerX = i * CELL_SIZE + CELL_SIZE / 2;
-                int centerY = j * CELL_SIZE + CELL_SIZE / 2;
-                int radius = CELL_SIZE / 2 - 10;
-                for (double angle = 0; angle < 360; angle += 5)
-                {
-                    double radians = angle * 3.1415926 / 180;
-                    int x = centerX + radius * cos(radians);
-                    int y = centerY + radius * sin(radians);
-                    SDL_RenderDrawPoint(renderer, x, y);
-                }
+                int cellX = i * CELL_SIZE;
+                int cellY = j * CELL_SIZE;
+                drawO(renderer, cellX, cellY, CELL_SIZE);
             }
         }
     }
@@ -146,27 +92,9 @@ void drawBoard()
     SDL_RenderPresent(renderer);
 }
 
-
-int checkDraw(Player player)
-{
-    int cnt = 0 ;
-    for (int i = 0; i < BOARD_SIZE; i++)
-    {
-        for (int j = 0; j < BOARD_SIZE; j++)
-        {
-            if (board[i][j] == player)
-            {
-                cnt ++ ;
-            }
-        }
-    }
-    return cnt ;
-}
-
-
 void handleEvent(SDL_Event event)
 {
-    static Player currentPlayer = Player::X;
+    static Player currentPlayer = Player::X ;
 
     if (event.type == SDL_QUIT)
     {
@@ -181,14 +109,14 @@ void handleEvent(SDL_Event event)
         if (board[cellX][cellY] == Player::None)
         {
             board[cellX][cellY] = currentPlayer;
-            if(checkDraw(Player::X) + checkDraw(Player::O) == 25)
-            {
-                cout << "Draw !!!" ;
-                running = false ;
-            }
             if (checkWin(currentPlayer , board))
             {
                 cout << "Player " << static_cast<int>(currentPlayer) << " wins!" << std::endl;
+                running = false;
+            }
+            else if(checkDraw(Player::X , board) + checkDraw(Player::O , board) == 9)
+            {
+                cout << "Draw!" ;
                 running = false;
             }
             else
@@ -198,8 +126,6 @@ void handleEvent(SDL_Event event)
         }
     }
 }
-
-
 
 int main(int argc, char *argv[])
 {
@@ -228,5 +154,5 @@ int main(int argc, char *argv[])
 
     closeSDL();
 
-    return 0;
+    return 0 ;
 }
