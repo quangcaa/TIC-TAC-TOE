@@ -4,7 +4,7 @@
 
 #include "icon.h"
 #include "checkWin.h"
-#include "checkDraw.h"
+#include "checkTie.h"
 #include "drawXO.h"
 
 using namespace std ;
@@ -32,7 +32,7 @@ bool running = true;
 
 void initSDL()
 {
-    SDL_Init(SDL_INIT_VIDEO );
+    SDL_Init(SDL_INIT_VIDEO);
     window = SDL_CreateWindow("Tic Tac Toe" , SDL_WINDOWPOS_CENTERED , SDL_WINDOWPOS_CENTERED , SCREEN_WIDTH , SCREEN_HEIGHT , SDL_WINDOW_SHOWN) ;
     renderer = SDL_CreateRenderer(window, -1, 0);
 }
@@ -47,6 +47,44 @@ void closeSDL()
     SDL_Quit();
 }
 
+void resetBoard()
+{
+    for (int i = 0; i < BOARD_SIZE; i++)
+    {
+        for (int j = 0; j < BOARD_SIZE; j++)
+        {
+            board[i][j] = Player::None;
+        }
+    }
+}
+
+void displayResImage(int p)
+{
+    SDL_Surface* image ;
+    if(p == 2)
+    {
+        image = SDL_LoadBMP("image/Owon.bmp") ;
+    }
+    else if(p == 1)
+    {
+        image = SDL_LoadBMP("image/Xwon.bmp") ;
+    }
+    else if(p == 0)
+    {
+        image = SDL_LoadBMP("image/tie.bmp") ;
+    }
+
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, image);
+    SDL_FreeSurface(image);
+
+    SDL_RenderCopy(renderer, texture, NULL, NULL);
+    SDL_RenderPresent(renderer);
+
+    SDL_Delay(1000);
+
+    SDL_DestroyTexture(texture);
+}
+
 
 void drawBoard()
 {
@@ -56,9 +94,10 @@ void drawBoard()
 
     //line color
     SDL_SetRenderDrawColor(renderer , 111 , 45 , 168 , 255) ;
-    //line width
+    //draw line
     for (int i = 1; i < BOARD_SIZE; i++)
     {
+        //line width 
         for(int j=0 ; j<=5 ; j++)
         {
             SDL_RenderDrawLine(renderer , i * CELL_SIZE + j , 0 , i * CELL_SIZE + j , SCREEN_HEIGHT) ;
@@ -111,13 +150,20 @@ void handleEvent(SDL_Event event)
             board[cellX][cellY] = currentPlayer;
             if (checkWin(currentPlayer , board))
             {
-                cout << "Player " << static_cast<int>(currentPlayer) << " wins!" << std::endl;
-                running = false;
+                if(currentPlayer == Player::X)
+                {
+                    displayResImage(1) ;
+                }
+                else
+                {
+                    displayResImage(2) ;
+                }
+                resetBoard() ;
             }
-            else if(checkDraw(Player::X , board) + checkDraw(Player::O , board) == 9)
+            else if(checkTie(Player::X , board) + checkTie(Player::O , board) == 9)
             {
-                cout << "Draw!" ;
-                running = false;
+                displayResImage(0) ;
+                resetBoard() ;
             }
             else
             {
@@ -133,14 +179,7 @@ int main(int argc, char *argv[])
 
     loadIcon() ;
 
-    // Initialize board to empty
-    for (int i = 0; i < BOARD_SIZE; i++)
-    {
-        for (int j = 0; j < BOARD_SIZE; j++)
-        {
-            board[i][j] = Player::None;
-        }
-    }
+    resetBoard() ;
 
     while (running)
     {
