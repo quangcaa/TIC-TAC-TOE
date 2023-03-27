@@ -3,8 +3,7 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 #include <cmath>
-
-enum class Player ;
+#include "player.h"
 
 int checkTie(Player player , Player board[][3]) ;
 

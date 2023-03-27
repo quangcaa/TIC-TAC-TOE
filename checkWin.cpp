@@ -2,7 +2,7 @@
 
 bool checkWin(Player player , Player board[][3])
 {
-    //Check rows
+    //check rows
     for(int i=0 ; i<3 ; i++)
     {
         bool win = true ;
@@ -20,7 +20,7 @@ bool checkWin(Player player , Player board[][3])
         }
     }
 
-    //Check columns
+    //check columns
     for(int j=0 ; j<3 ; j++)
     {
         bool win = true;
@@ -38,7 +38,7 @@ bool checkWin(Player player , Player board[][3])
         }
     }
 
-    //Check diagonal 1
+    //check diagonal 1
     bool win = true;
     for(int i=0 ; i<3 ; i++)
     {
