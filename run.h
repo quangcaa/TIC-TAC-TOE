@@ -1,6 +1,7 @@
 #ifndef RUN_H
 #define RUN_H
 #include <SDL2/SDL.h>
+#include <vector>
 #include <iostream>
 #include <cmath>
 #include "drawBoard.h"

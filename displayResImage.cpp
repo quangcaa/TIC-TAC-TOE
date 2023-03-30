@@ -8,15 +8,15 @@ void displayResImage(int p)
     //load image for the winner
     if(p == 2)
     {
-        image = SDL_LoadBMP("image/Owon.bmp") ; 
+        image = SDL_LoadBMP("image/Owon_ct.bmp") ; 
     }
     else if(p == 1)
     {
-        image = SDL_LoadBMP("image/Xwon.bmp") ;
+        image = SDL_LoadBMP("image/Xwon_ct.bmp") ;
     }
     else if(p == 0)
     {
-        image = SDL_LoadBMP("image/tie.bmp") ;
+        image = SDL_LoadBMP("image/tie_ct.bmp") ;
     }
 
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, image) ;
@@ -29,7 +29,7 @@ void displayResImage(int p)
     while(!clicked)
     {
         SDL_Event event ;
-        if(SDL_WaitEvent(&event))
+        if(SDL_PollEvent(&event))
         {
             switch(event.type)
             {

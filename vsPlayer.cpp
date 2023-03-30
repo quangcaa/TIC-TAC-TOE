@@ -34,7 +34,6 @@ void handleVsPlayer(SDL_Event event)
                 {
                     displayResImage(2) ;
                 }
-
                 currentPlayer = Player::X ; //set first player to X in new game 
             }
             else if(checkTie(Player::X , board) + checkTie(Player::O , board) == 9)

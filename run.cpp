@@ -15,25 +15,32 @@ void run()
         }
     }
 
+    //create a vector to store events
+    vector<SDL_Event> events ;
+
     while(running)
     {
-        SDL_Event event;
+        SDL_Event event ; //poll for events and add them to the event vector
+        while (SDL_PollEvent(&event))
+        {
+            events.push_back(event) ;
+        }
 
-        if(Mode == "vs computer")
+        for(auto &event : events) //process all events in the event vector
         {
-            while(SDL_PollEvent(&event))
+            if (Mode == "vs computer")
             {
-                handleVsComputer(event) ;
+                handleVsComputer(event);
+            }
+            else if (Mode == "vs player")
+            {
+                handleVsPlayer(event);
             }
         }
-        else if(Mode == "vs player")
-        {
-            while(SDL_PollEvent(&event))
-            {
-                handleVsPlayer(event) ;
-            }
-        }
+
+        events.clear() ; //clear the event vector
 
         drawBoard() ;
     }
+
 }
