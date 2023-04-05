@@ -1,6 +1,6 @@
 #ifndef VSPALYER_H
 #define VSPLAYER_H
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <iostream>
 #include <cmath>
 #include "player.h"

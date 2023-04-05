@@ -28,7 +28,7 @@ void closeSDL()
 
 void loadIcon()
 {
-    SDL_Surface *icon = SDL_LoadBMP("image/icon.bmp"); //load the icon image
+    SDL_Surface *icon = IMG_Load("image/icon.png"); //load the icon image
 
     SDL_SetWindowIcon(window, icon); //set the icon of the window
 

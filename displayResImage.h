@@ -1,6 +1,7 @@
 #ifndef DISPLAYRESIMAGE_H
 #define DISPLAYRESIMAGE_H
-#include <SDL2/SDL.h>
+#include <SDL.h>
+#include <SDL_image.h>
 #include <iostream>
 #include <cmath>
 #include "run.h"

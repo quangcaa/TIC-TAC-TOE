@@ -8,15 +8,15 @@ void displayResImage(int p)
     //load image for the winner
     if(p == 2)
     {
-        image = SDL_LoadBMP("image/Owon_ct.bmp") ; 
+        image = IMG_Load("image/Owon_ct.png") ; 
     }
     else if(p == 1)
     {
-        image = SDL_LoadBMP("image/Xwon_ct.bmp") ;
+        image = IMG_Load("image/Xwon_ct.png") ;
     }
     else if(p == 0)
     {
-        image = SDL_LoadBMP("image/tie_ct.bmp") ;
+        image = IMG_Load("image/tie_ct.png") ;
     }
 
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, image) ;

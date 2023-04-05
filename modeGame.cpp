@@ -2,7 +2,7 @@
 
 string modeGame()
 {
-    SDL_Surface* image = SDL_LoadBMP("image/mode_selection.bmp") ; //load the mode selection image
+    SDL_Surface* image = IMG_Load("image/mode_selection.png") ; //load the mode selection image
 
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer , image) ;
     SDL_FreeSurface(image) ;

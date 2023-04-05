@@ -1,6 +1,7 @@
 #ifndef MODEGAME_H
 #define MODEGAME_H
-#include <SDL2/SDL.h>
+#include <SDL.h>
+#include <SDL_image.h>
 #include <iostream>
 #include <cmath>
 #include <string>
