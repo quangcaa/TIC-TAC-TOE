@@ -3,9 +3,11 @@
 void initSDL()
 {
     SDL_Init(SDL_INIT_EVERYTHING) ;
+    IMG_Init(IMG_INIT_PNG) ;
+    TTF_Init() ;
     window = SDL_CreateWindow("Tic Tac Toe" , SDL_WINDOWPOS_CENTERED , SDL_WINDOWPOS_CENTERED , SCREEN_WIDTH , SCREEN_HEIGHT , SDL_WINDOW_SHOWN) ;
-    renderer = SDL_CreateRenderer(window, -1, 0);
-}
+    renderer = SDL_CreateRenderer(window, -1, 0) ;
+} 
 
 void resetBoard()
 {
@@ -20,17 +22,18 @@ void resetBoard()
 
 void closeSDL()
 {
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(renderer) ;
+    SDL_DestroyWindow(window) ;
 
-    SDL_Quit();
+    IMG_Quit() ;
+    SDL_Quit() ;
 }
 
 void loadIcon()
 {
-    SDL_Surface *icon = IMG_Load("image/icon.png"); //load the icon image
+    SDL_Surface *icon = IMG_Load("image/icon.png") ; //load the icon image
 
-    SDL_SetWindowIcon(window, icon); //set the icon of the window
+    SDL_SetWindowIcon(window, icon) ; //set the icon of the window
 
     SDL_FreeSurface(icon) ; //free 
 }

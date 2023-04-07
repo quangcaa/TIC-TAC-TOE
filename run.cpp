@@ -15,8 +15,8 @@ void run()
         }
     }
 
-    //create a vector to store events
-    vector<SDL_Event> events ;
+
+    vector<SDL_Event> events ; //create a vector to store events
 
     while(running)
     {
