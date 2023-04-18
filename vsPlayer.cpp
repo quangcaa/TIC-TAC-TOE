@@ -23,7 +23,7 @@ void handleVsPlayer(SDL_Event event)
         if(board[cellX][cellY] == Player::None)
         {
             board[cellX][cellY] = currentPlayer ; //set currentPlayer to empty cell
-            if(checkWin(currentPlayer , board))
+            if(checkWin(currentPlayer))
             {
                 resetBoard() ;
                 if(currentPlayer == Player::X)
@@ -36,7 +36,7 @@ void handleVsPlayer(SDL_Event event)
                 }
                 currentPlayer = Player::X ; //set first player to X in new game 
             }
-            else if(checkTie(Player::X , board) + checkTie(Player::O , board) == 9)
+            else if(checkTie() == WIN_SIZE*WIN_SIZE)
             {
                 resetBoard() ;
                 displayResImage(0) ;

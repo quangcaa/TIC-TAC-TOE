@@ -2,9 +2,9 @@
 
 void drawX(SDL_Renderer *renderer , int x , int y , int size)
 {
-    SDL_SetRenderDrawColor(renderer, 255 , 0 , 0 , 255) ; //set color X (red)
+    SDL_SetRenderDrawColor(renderer, 200 , 100 , 40 , 255) ; //set color X (orange)
 
-    for(int i=-9 ; i<=9 ; i++) //thicker X (19 pixel)
+    for(int i=-10 ; i<=10 ; i++) //thicker X (21 pixel)
     {
         SDL_RenderDrawLine(renderer, x+25+i , y+25 , x+size-25+i , y+size-25) ; //draw diagonal lines offset to
         SDL_RenderDrawLine(renderer, x+size-25+i , y+25 , x+25+i , y+size-25) ; //avoid touching screen edges
@@ -15,16 +15,16 @@ void drawX(SDL_Renderer *renderer , int x , int y , int size)
 
 void drawO(SDL_Renderer* renderer, int x, int y, int size)
 {
-    SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255) ; //set color O (blue)
+    SDL_SetRenderDrawColor(renderer, 34 , 139 , 34 , 255) ; //set color O (green)
 
     int centerX = x + size/2 ; //find the center 
     int centerY = y + size/2 ; //of circle
 
-    for(int i=0 ; i<12 ; i++) // thicker circle (12 pixel)
+    for(int i=0 ; i<15 ; i++) // thicker circle (16 pixel)
     {
-        int radius = CELL_SIZE / 2 - 20 -i ; //calculate radius (ban kinh) (value(20) == avoid touching screen edges)
+        int radius = CELL_SIZE / 2 - 18 - i ; //calculate radius (value(18) == avoid touching cell edges)
 
-        for (double angle=0 ; angle<=2*M_PI ; angle+=0.002) //draw the circle using dots 
+        for (double angle=0 ; angle<=2*M_PI ; angle+=0.01) //draw the circle using dots 
         {
             int dotX = centerX + radius * cos(angle) ; 
             int dotY = centerY + radius * sin(angle) ;
@@ -35,3 +35,4 @@ void drawO(SDL_Renderer* renderer, int x, int y, int size)
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255) ; //set color back to default
 }
+

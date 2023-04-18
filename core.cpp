@@ -11,11 +11,11 @@ void initSDL()
 
 void resetBoard()
 {
-    for (int i=0 ; i<3 ; i++)
+    for (int i=0 ; i<BOARD_SIZE ; i++)
     {
-        for (int j=0 ; j<3 ; j++)
+        for (int j=0 ; j<BOARD_SIZE ; j++)
         {
-            board[i][j] = Player::None;
+            board[i][j] = Player::None ;
         }
     }
 }

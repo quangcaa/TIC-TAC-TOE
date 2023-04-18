@@ -16,29 +16,48 @@ void run()
     }
 
 
-    vector<SDL_Event> events ; //create a vector to store events
+    // vector<SDL_Event> events ; //create a vector to store events
 
     while(running)
     {
         SDL_Event event ; //poll for events and add them to the event vector
-        while (SDL_PollEvent(&event))
+        while(SDL_PollEvent(&event))
         {
-            events.push_back(event) ;
+            // events.push_back(event) ;
+            if (event.type == SDL_QUIT)
+            {
+                running = false ;
+            }
+			else if(event.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
+			{
+				running = false ;
+			}
+            else
+            {
+                if(Mode == "vs computer")
+                {
+                    handleVsComputer(event) ;
+                }
+                else if(Mode == "vs player")
+                {
+                    handleVsPlayer(event) ;
+                }
+            }
         }
 
-        for(auto &event : events) //process all events in the event vector
-        {
-            if (Mode == "vs computer")
-            {
-                handleVsComputer(event);
-            }
-            else if (Mode == "vs player")
-            {
-                handleVsPlayer(event);
-            }
-        }
+        // for(auto &event : events) //process all events in the event vector
+        // {
+        //     if (Mode == "vs computer")
+        //     {
+        //         handleVsComputer(event) ;
+        //     }
+        //     else if (Mode == "vs player")
+        //     {
+        //         handleVsPlayer(event) ;
+        //     }
+        // }
 
-        events.clear() ; //clear the event vector
+        // events.clear() ; //clear the event vector
 
         drawBoard() ;
     }

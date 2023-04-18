@@ -1,14 +1,13 @@
-#ifndef DISPLAYRESIMAGE_H
-#define DISPLAYRESIMAGE_H
+#pragma once 
+
 #include <SDL.h>
 #include <SDL_image.h>
 #include <iostream>
-#include <cmath>
 #include "run.h"
+#include "modeGame.h"
 
-extern SDL_Renderer *renderer ;
+extern SDL_Renderer *renderer ; 
+extern SDL_Window *window ;
 extern bool running ;
 
 void displayResImage(int p) ;
-
-#endif

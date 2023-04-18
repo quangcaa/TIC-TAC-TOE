@@ -1,13 +1,13 @@
 #include "checkTie.h"
 
-int checkTie(Player player , Player board[][3])
+int checkTie()
 {
     int turn = 0 ;
-    for(int i=0 ; i<3 ; i++)
+    for(int i=0 ; i<BOARD_SIZE ; i++)
     {
-        for (int j=0 ; j<3 ; j++)
+        for (int j=0 ; j<BOARD_SIZE ; j++)
         {
-            if (board[i][j] == player)
+            if (board[i][j] == Player::X || board[i][j] == Player::O)
             {
                 turn ++ ;
             }

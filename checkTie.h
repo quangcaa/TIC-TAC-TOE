@@ -1,10 +1,10 @@
-#ifndef CHECKTIE_H
-#define CHECKTIE_H
+#pragma once 
+
 #include <SDL.h>
 #include <iostream>
-#include <cmath>
 #include "player.h"
+#include "global.h"
 
-int checkTie(Player player , Player board[][3]) ;
+extern Player board[][3] ;
 
-#endif
+int checkTie() ;

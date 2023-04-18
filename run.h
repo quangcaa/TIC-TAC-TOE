@@ -1,5 +1,5 @@
-#ifndef RUN_H
-#define RUN_H
+#pragma once
+
 #include <SDL.h>
 #include <vector>
 #include <iostream>
@@ -14,5 +14,3 @@ using namespace std ;
 extern bool running ;
 
 void run() ;
-
-#endif 

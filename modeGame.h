@@ -1,15 +1,14 @@
-#ifndef MODEGAME_H
-#define MODEGAME_H
+#pragma once 
+
 #include <SDL.h>
 #include <SDL_image.h>
 #include <iostream>
 #include <cmath>
 #include <string>
+#include "global.h"
 using namespace std ;
 
+extern SDL_Renderer *renderer ; 
 extern bool running ;
-extern SDL_Renderer *renderer ;
 
 string modeGame() ;
-
-#endif 

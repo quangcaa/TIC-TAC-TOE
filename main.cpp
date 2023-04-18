@@ -21,17 +21,13 @@
 
 using namespace std ;
 
-const int SCREEN_WIDTH = 660 ;
-const int SCREEN_HEIGHT = 660 ;
-const int BOARD_SIZE = 3 ;
-const int CELL_SIZE = 220 ;
-
 SDL_Window *window = nullptr ;
 SDL_Renderer *renderer = nullptr ;
+TTF_Font *font = nullptr ;
 
-Player board[3][3];
+Player board[3][3] ;
 
-bool running = true;
+bool running = true ;
 
 int main(int argc, char *argv[])
 {

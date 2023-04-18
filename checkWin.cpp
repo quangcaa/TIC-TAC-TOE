@@ -1,12 +1,12 @@
 #include "checkWin.h"
 
-bool checkWin(Player player , Player board[][3])
+bool checkWin(Player player)
 {
     //check rows
-    for(int i=0 ; i<3 ; i++)
+    for(int i=0 ; i<BOARD_SIZE ; i++)
     {
         bool win = true ;
-        for(int j=0; j<3 ; j++)
+        for(int j=0; j<BOARD_SIZE ; j++)
         {
             if(board[i][j] != player)
             {
@@ -21,10 +21,10 @@ bool checkWin(Player player , Player board[][3])
     }
 
     //check columns
-    for(int j=0 ; j<3 ; j++)
+    for(int j=0 ; j<BOARD_SIZE ; j++)
     {
-        bool win = true;
-        for(int i=0 ; i<3 ; i++)
+        bool win = true ;
+        for(int i=0 ; i<BOARD_SIZE ; i++)
         {
             if(board[i][j] != player)
             {
@@ -40,7 +40,7 @@ bool checkWin(Player player , Player board[][3])
 
     //check diagonal 1
     bool win = true;
-    for(int i=0 ; i<3 ; i++)
+    for(int i=0 ; i<BOARD_SIZE ; i++)
     {
         if(board[i][i] != player)
         {
@@ -55,9 +55,9 @@ bool checkWin(Player player , Player board[][3])
 
     //Check diagonal 2
     win = true ;
-    for(int i=0; i<3 ; i++)
+    for(int i=0; i<BOARD_SIZE ; i++)
     {
-        if(board[i][3-i-1] != player)
+        if(board[i][BOARD_SIZE-1-i] != player)
         {
             win = false;
             break;

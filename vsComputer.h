@@ -1,5 +1,5 @@
-#ifndef VSCOMPUTER_H
-#define VSCOMPUTER_H
+#pragma once 
+
 #include <SDL.h>
 #include <iostream>
 #include <cmath>
@@ -8,11 +8,8 @@
 #include "checkWin.h"
 #include "core.h"
 #include "displayResImage.h"
+#include "global.h"
 
-extern const int CELL_SIZE ;
-extern Player board[3][3] ;
-extern bool running ;
+extern Player board[][3] ;
 
 void handleVsComputer(SDL_Event event) ;
-
-#endif

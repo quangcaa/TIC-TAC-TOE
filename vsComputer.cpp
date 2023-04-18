@@ -1,4 +1,5 @@
 #include "vsComputer.h"
+#include "AI.h"
 
 void handleVsComputer(SDL_Event event)
 {
@@ -13,20 +14,15 @@ void handleVsComputer(SDL_Event event)
         }
         else
         {
-            int x , y ;
-            do
-            {
-                x = rand() % BOARD_SIZE;
-                y = rand() % BOARD_SIZE;
-            } while(board[x][y] != Player::None) ;
-            board[x][y] = computer ;
-            if(checkWin(currentPlayer, board))
+            pair<int,int> best = get_best_move(board , 3) ;
+            board[best.first][best.second] = computer ;
+            if(checkWin(currentPlayer))
             {
                 resetBoard() ;
                 displayResImage(2) ;
                 currentPlayer = Player::X ; //set first player to X in new game
             }
-            else if(checkTie(Player::X, board) + checkTie(Player::O, board) == 9)
+            else if(checkTie() == WIN_SIZE*WIN_SIZE)
             {
                 resetBoard() ;
                 displayResImage(0) ;
@@ -52,13 +48,13 @@ void handleVsComputer(SDL_Event event)
             if(board[cellX][cellY] == Player::None)
             {
                 board[cellX][cellY] = currentPlayer ; //set currentPlayer to empty cell
-                if(checkWin(currentPlayer, board))
+                if(checkWin(currentPlayer))
                 {
                     resetBoard() ;
                     displayResImage(1) ;
                     currentPlayer = Player::X ; // set first player to X in new game
                 }
-                else if(checkTie(Player::X, board) + checkTie(Player::O, board) == 9)
+                else if(checkTie() == WIN_SIZE*WIN_SIZE)
                 {
                     resetBoard() ;
                     displayResImage(0) ;

@@ -1,5 +1,4 @@
 #include "displayResImage.h"
-#include "modeGame.h"
 
 void displayResImage(int p)
 {
@@ -22,7 +21,8 @@ void displayResImage(int p)
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, image) ;
     SDL_FreeSurface(image) ;
 
-    SDL_RenderCopy(renderer, texture, NULL, NULL) ;
+    SDL_Rect result = {0 , 0 , SCREEN_WIDTH , SCREEN_HEIGHT} ;
+    SDL_RenderCopy(renderer, texture, NULL, &result) ;
     SDL_RenderPresent(renderer) ;
 
     bool clicked = false ;
@@ -31,28 +31,26 @@ void displayResImage(int p)
         SDL_Event event ;
         if(SDL_PollEvent(&event))
         {
-            switch(event.type)
+            if (event.type == SDL_QUIT || event.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
             {
-                case(SDL_QUIT) :
+                running = false ;
+                clicked = true ;
+                break ;
+            }
+            else if(event.type == SDL_MOUSEBUTTONDOWN)
+            {
+                int x , y ;
+                SDL_GetMouseState(&x , &y) ;
+                if(x>=245 && x<=313 && y>=429 && y<=487)
                 {
-                    running = false ;
                     clicked = true ;
+                    run() ;
                     break ;
                 }
-                case(SDL_MOUSEBUTTONDOWN) :
+                else if(x>=340 && x<=413 && y>=429 && y<=487)
                 {
-                    int x , y ;
-                    SDL_GetMouseState(&x , &y) ;
-                    if(x>=245 && x<=313 && y>=429 && y<=487)
-                    {
-                        clicked = true ;
-                        run() ;
-                    }
-                    else if(x>=340 && x<=413 && y>=429 && y<=487)
-                    {
-                        clicked = true ;
-                        SDL_Delay(200) ;
-                    }
+                    clicked = true ;
+                    SDL_Delay(200) ;
                 }
             }
         }

@@ -1,10 +1,10 @@
-#ifndef CHECKWIN_H
-#define CHECKWIN_H
+#pragma once 
+
 #include <SDL.h>
 #include <iostream>
-#include <cmath>
 #include "player.h"
+#include "global.h"
 
-bool checkWin(Player player , Player board[][3]) ;
+extern Player board[][3] ;
 
-#endif
+bool checkWin(Player player) ;

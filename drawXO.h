@@ -1,17 +1,12 @@
-#ifndef DRAWXO_H
-#define DRAWXO_H
+#pragma once
+
 #include <SDL.h>
-#include <SDL_ttf.h>
-#include <sstream>
+#include <SDL_image.h>
 #include <iostream>
 #include <cmath>
+#include "global.h"
 
 using namespace std ;
 
-extern SDL_Renderer *renderer ;
-extern const int CELL_SIZE ;
-
 void drawX(SDL_Renderer* renderer, int x, int y, int size) ;
 void drawO(SDL_Renderer* renderer, int x, int y, int size) ;
-
-#endif
