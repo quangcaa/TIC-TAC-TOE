@@ -8,9 +8,8 @@
 #include "modeGame.h"
 #include "vsComputer.h"
 #include "vsPlayer.h"
+#include "sideBar.h"
 
 using namespace std ;
-
-extern bool running ;
 
 void run() ;

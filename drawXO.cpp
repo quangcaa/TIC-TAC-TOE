@@ -2,7 +2,7 @@
 
 void drawX(SDL_Renderer *renderer , int x , int y , int size)
 {
-    SDL_SetRenderDrawColor(renderer, 200 , 100 , 40 , 255) ; //set color X (orange)
+    SDL_SetRenderDrawColor(renderer, 255 , 255 , 255 , 255) ; //set color X
 
     for(int i=-10 ; i<=10 ; i++) //thicker X (21 pixel)
     {
@@ -15,7 +15,7 @@ void drawX(SDL_Renderer *renderer , int x , int y , int size)
 
 void drawO(SDL_Renderer* renderer, int x, int y, int size)
 {
-    SDL_SetRenderDrawColor(renderer, 34 , 139 , 34 , 255) ; //set color O (green)
+    SDL_SetRenderDrawColor(renderer, 255 , 255 , 255 , 255) ; //set color O 
 
     int centerX = x + size/2 ; //find the center 
     int centerY = y + size/2 ; //of circle
@@ -24,7 +24,7 @@ void drawO(SDL_Renderer* renderer, int x, int y, int size)
     {
         int radius = CELL_SIZE / 2 - 18 - i ; //calculate radius (value(18) == avoid touching cell edges)
 
-        for (double angle=0 ; angle<=2*M_PI ; angle+=0.01) //draw the circle using dots 
+        for (double angle=0 ; angle<=2*M_PI ; angle+=0.005) //draw the circle using dots 
         {
             int dotX = centerX + radius * cos(angle) ; 
             int dotY = centerY + radius * sin(angle) ;

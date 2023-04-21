@@ -1,55 +1,46 @@
 #include "modeGame.h"
 
-string modeGame()
+void modegame(string &mode)
 {
-    SDL_Surface* image = IMG_Load("image/mode_selection.png") ; //load the mode selection image
-
+    SDL_Surface* image = IMG_Load("image/mode.png") ; //load the mode selection image
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer , image) ;
     SDL_FreeSurface(image) ;
 
     SDL_RenderCopy(renderer , texture , NULL , NULL) ;
     SDL_RenderPresent(renderer) ;
 
-    //wait click the mouse
-    bool clicked = false ;
-    string gameMode = "" ;
+    bool clicked = false ; //wait click the mouse
+    SDL_Event event ;
 
     while (!clicked)
     {
-        SDL_Event event ;
-        SDL_PollEvent(&event) ;
-        switch(event.type)
+        while(SDL_PollEvent(&event))
         {
-            case(SDL_QUIT) :
+            if(event.type == SDL_QUIT || event.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
             {
                 running = false ;
                 clicked = true ;
                 break ;
             }
-            case(SDL_MOUSEBUTTONDOWN) :
+            else if(event.type == SDL_MOUSEBUTTONDOWN)
             {
                 int x , y ;
-                SDL_GetMouseState(&x, &y) ;
-                if (x >= 160 && x <= 500 && y >= 341 && y <= 405) //vs_computer pos
+                SDL_GetMouseState(&x , &y) ;
+                if(x >= 161 && x <= 500 && y >= 372 && y <= 444) // vs computer pos
                 {
-                    gameMode = "vs computer" ; 
                     clicked = true ;
+                    mode = "vs computer" ;
                 }
-                else if (x >= 190 && x <= 431 && y >= 467 && y <= 490) //vs_player pos
+                else if(x >= 190 && x <= 466 && y >= 471 && y <= 536) // vs player pos
                 {
-                    gameMode = "vs player" ; 
                     clicked = true ;
+                    mode = "vs player" ;
                 }
-                break ;
-            }
-            default :
-            {
-                break ;
             }
         }
     }
 
-    SDL_DestroyTexture(texture);
+    SDL_DestroyTexture(texture) ;
 
-    return gameMode ;
+    return ;
 }

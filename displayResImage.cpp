@@ -4,24 +4,23 @@ void displayResImage(int p)
 {
     SDL_Surface *image ;
 
-    //load image for the winner
-    if(p == 2)
+    if(p == 2)//load image for the winner
     {
-        image = IMG_Load("image/Owon_ct.png") ; 
+        image = IMG_Load("image/Owin.png") ; 
     }
     else if(p == 1)
     {
-        image = IMG_Load("image/Xwon_ct.png") ;
+        image = IMG_Load("image/Xwin.png") ;
     }
     else if(p == 0)
     {
-        image = IMG_Load("image/tie_ct.png") ;
+        image = IMG_Load("image/tie.png") ;
     }
 
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, image) ;
     SDL_FreeSurface(image) ;
 
-    SDL_Rect result = {0 , 0 , SCREEN_WIDTH , SCREEN_HEIGHT} ;
+    SDL_Rect result = {0 , 0 , BOARD_WIDTH , BOARD_HEIGHT} ;
     SDL_RenderCopy(renderer, texture, NULL, &result) ;
     SDL_RenderPresent(renderer) ;
 
@@ -41,16 +40,10 @@ void displayResImage(int p)
             {
                 int x , y ;
                 SDL_GetMouseState(&x , &y) ;
-                if(x>=245 && x<=313 && y>=429 && y<=487)
+                if(x>=0 && x<=BOARD_WIDTH && y>=0 && y<=BOARD_HEIGHT)
                 {
                     clicked = true ;
-                    run() ;
                     break ;
-                }
-                else if(x>=340 && x<=413 && y>=429 && y<=487)
-                {
-                    clicked = true ;
-                    SDL_Delay(200) ;
                 }
             }
         }

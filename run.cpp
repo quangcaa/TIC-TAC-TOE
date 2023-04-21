@@ -2,19 +2,18 @@
 
 void run()
 {
-    string Mode ;
+    string mode ;
     bool modeSelected = false ;
 
-    while(!modeSelected)
+    while(!modeSelected && running)
     {
-        Mode = modeGame() ; //display mode selection
+        modegame(mode) ; //display mode selection
 
-        if(Mode == "vs computer" || Mode == "vs player") //check if a valid mode was selected
+        if(mode == "vs computer" || mode == "vs player") //check if a valid mode was selected
         {
             modeSelected = true ;
         }
     }
-
 
     // vector<SDL_Event> events ; //create a vector to store events
 
@@ -24,21 +23,17 @@ void run()
         while(SDL_PollEvent(&event))
         {
             // events.push_back(event) ;
-            if (event.type == SDL_QUIT)
+            if (event.type == SDL_QUIT || event.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
             {
                 running = false ;
             }
-			else if(event.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
-			{
-				running = false ;
-			}
             else
             {
-                if(Mode == "vs computer")
+                if(mode == "vs computer")
                 {
                     handleVsComputer(event) ;
                 }
-                else if(Mode == "vs player")
+                else if(mode == "vs player")
                 {
                     handleVsPlayer(event) ;
                 }

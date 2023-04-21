@@ -6,9 +6,10 @@
 #include <cmath>
 #include <string>
 #include "global.h"
+
 using namespace std ;
 
 extern SDL_Renderer *renderer ; 
 extern bool running ;
 
-string modeGame() ;
+void modegame(string &mode) ;
