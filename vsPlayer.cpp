@@ -47,5 +47,11 @@ void handleVsPlayer(SDL_Event event)
                 currentPlayer = (currentPlayer == Player::X) ? Player::O : Player::X ;
             }
         }
+        else if(x>=0 && x<=RETURN_BUTTON_SIZE && y>=BOARD_HEIGHT+2 && y<=SCREEN_HEIGHT-2)
+        {
+            resetBoard() ;
+            currentPlayer = Player::X ; // set first player to X in new game
+            run() ;
+        }
     }
 }

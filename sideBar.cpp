@@ -8,4 +8,6 @@ void returnBut()
 
     SDL_Rect rBut = {0 , BOARD_HEIGHT+2 , RETURN_BUTTON_SIZE , RETURN_BUTTON_SIZE} ;
     SDL_RenderCopy(renderer , texture , NULL , &rBut) ;
+
+    SDL_DestroyTexture(texture) ;
 }

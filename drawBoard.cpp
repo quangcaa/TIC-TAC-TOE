@@ -6,7 +6,6 @@ void drawBoard()
     SDL_RenderClear(renderer) ;
 
     SDL_SetRenderDrawColor(renderer , 111 , 45 , 168 , 255) ; //line color
-
     for(int i=0 ; i<=BOARD_SIZE ; i++) //draw line
     {
         if(i == 0)
@@ -35,7 +34,7 @@ void drawBoard()
         }
     }
 
-    for(int i=0 ; i<BOARD_SIZE ; i++) //draw objects on board
+    for(int i=0 ; i<BOARD_SIZE ; i++) //draw objects on board (X & O)
     {
         for(int j=0 ; j<BOARD_SIZE ; j++)
         {
