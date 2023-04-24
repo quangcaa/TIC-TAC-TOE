@@ -4,7 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include "drawBoard.h"
+#include "draw.h"
 #include "modeGame.h"
 #include "vsComputer.h"
 #include "vsPlayer.h"

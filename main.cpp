@@ -7,9 +7,8 @@
 #include <thread>
 #include <chrono>
 
-#include "player.h"
 #include "core.h"
-#include "drawBoard.h"
+#include "draw.h"
 #include "checkWin.h"
 #include "checkTie.h"
 #include "drawXO.h"
@@ -18,6 +17,7 @@
 #include "vsComputer.h"
 #include "vsPlayer.h"
 #include "run.h"
+#include "score.h"
 
 using namespace std ;
 
@@ -27,6 +27,9 @@ TTF_Font *font = nullptr ;
 
 Player board[3][3] ;
 
+int x_score = 0 ;
+int o_score = 0 ;
+
 bool running = true ;
 
 int main(int argc, char *argv[])
@@ -34,8 +37,6 @@ int main(int argc, char *argv[])
     initSDL();
 
     loadIcon() ;
-
-    resetBoard() ;
 
     run() ;
 

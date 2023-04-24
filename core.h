@@ -5,7 +5,6 @@
 #include <SDL_ttf.h>
 #include <iostream>
 #include <cmath>
-#include "player.h"
 #include "global.h"
 
 extern SDL_Renderer *renderer ;

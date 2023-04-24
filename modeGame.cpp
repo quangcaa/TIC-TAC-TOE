@@ -41,6 +41,4 @@ void modegame(string &mode)
     }
 
     SDL_DestroyTexture(texture) ;
-
-    return ;
 }

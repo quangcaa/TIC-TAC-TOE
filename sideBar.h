@@ -8,4 +8,6 @@
 
 extern SDL_Renderer *renderer ;
 
-void returnBut() ;
+void homeBut() ;
+void scoreBoard() ;
+void resetScore() ;

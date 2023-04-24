@@ -1,5 +1,4 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#pragma once
 
 enum class Player
 {
@@ -7,5 +6,3 @@ enum class Player
     X,
     O
 };
-
-#endif

@@ -1,6 +1,6 @@
-#include "drawBoard.h"
+#include "draw.h"
 
-void drawBoard()
+void draw()
 {
     SDL_SetRenderDrawColor(renderer, 153 , 102 , 203 , 255) ; //background color
     SDL_RenderClear(renderer) ;
@@ -40,20 +40,24 @@ void drawBoard()
         {
             if(board[i][j] == Player::X)
             {
-                int cellX = i * CELL_SIZE ;
-                int cellY = j * CELL_SIZE ;
+                int cellX = i * CELL_SIZE ; //get position
+                int cellY = j * CELL_SIZE ; 
                 drawX(renderer , cellX , cellY , CELL_SIZE) ;
             }
             else if (board[i][j] == Player::O)
             {
-                int cellX = i * CELL_SIZE ;
+                int cellX = i * CELL_SIZE ; //get position
                 int cellY = j * CELL_SIZE ;
                 drawO(renderer , cellX , cellY , CELL_SIZE) ;
             }
         }
     }
 
-    returnBut() ;
+    homeBut() ;
+    scoreBoard() ;
+    resetScore() ;
 
-    SDL_RenderPresent(renderer);
+    scoring() ;
+
+    SDL_RenderPresent(renderer) ;
 }

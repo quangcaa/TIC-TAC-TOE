@@ -6,7 +6,6 @@
 #include <cmath>
 #include <string>
 #include "global.h"
-
 using namespace std ;
 
 extern SDL_Renderer *renderer ; 

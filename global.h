@@ -15,3 +15,11 @@ const int WIN_SIZE = 3 ;
 
 //side bar 
 const int RETURN_BUTTON_SIZE = 56 ;
+const int SCORE_BOARD_WIDTH = 200 ;
+const int SCORE_BOARD_HEIGHT = 56 ;
+const int RESET_SCORE_SIZE = 56 ;
+
+//score 
+const int SCORE_HEIGHT = 30 ;
+const int SCORE_WIDTH_1 = 18 ;
+const int SCORE_WIDTH_2 = 36 ;

@@ -2,6 +2,11 @@
 
 void run()
 {
+    resetBoard() ;
+
+    x_score = 0 ;
+    o_score = 0 ;
+
     string mode ;
     bool modeSelected = false ;
 
@@ -54,7 +59,6 @@ void run()
 
         // events.clear() ; //clear the event vector
 
-        drawBoard() ;
+        draw() ;
     }
-
 }
