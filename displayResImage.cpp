@@ -3,7 +3,6 @@
 void displayResImage(int p)
 {
     SDL_Surface *image ;
-
     if(p == 2)//load image for the winner
     {
         image = IMG_Load("image/Owin.png") ; 

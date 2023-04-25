@@ -2,7 +2,7 @@
 
 void scoring()
 {
-    font = TTF_OpenFont("font/calibri.ttf" , SCORE_HEIGHT) ; //load font 
+    font = TTF_OpenFont("font/score.ttf" , SCORE_HEIGHT) ; //load font 
 
     const char *x = to_string(x_score).c_str() ; // X
     SDL_Surface *scoreX_surface = TTF_RenderText_Solid(font , x , {255,255,255}) ; 

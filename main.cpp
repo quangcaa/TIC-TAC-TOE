@@ -1,12 +1,8 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
-#include <SDL_mixer.h>
 #include <iostream>
 #include <cmath>
-#include <thread>
-#include <chrono>
-
 #include "core.h"
 #include "draw.h"
 #include "checkWin.h"
@@ -18,7 +14,6 @@
 #include "vsPlayer.h"
 #include "run.h"
 #include "score.h"
-
 using namespace std ;
 
 SDL_Window *window = nullptr ;

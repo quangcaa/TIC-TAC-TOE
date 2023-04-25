@@ -1,12 +1,9 @@
 #pragma once
-
 #include <SDL.h>
-#include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <string>
 #include <iostream>
 #include "global.h"
-
 using namespace std ;
 
 extern SDL_Renderer *renderer ;

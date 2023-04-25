@@ -16,6 +16,7 @@ void handleVsComputer(SDL_Event event)
         {
             pair<int,int> best = get_best_move(board) ;
             board[best.first][best.second] = computer ;
+            SDL_Delay(500) ;
 
             if(checkWin(currentPlayer))
             {
