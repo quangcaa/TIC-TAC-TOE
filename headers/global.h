@@ -1,5 +1,4 @@
 #pragma once 
-
 #include "player.h"
 
 //screen dimensions
@@ -9,9 +8,9 @@ const int SCREEN_HEIGHT = 720 ;
 //board 
 const int BOARD_WIDTH = 660 ;
 const int BOARD_HEIGHT = 660 ;
-const int BOARD_SIZE = 3 ;
-const int CELL_SIZE = 220 ;
-const int WIN_SIZE = 3 ;
+const int BOARD_SIZE = 15 ;
+const int CELL_SIZE = 44 ;
+const int WIN_SIZE = 5 ;
 
 //side bar 
 const int RETURN_BUTTON_SIZE = 56 ;

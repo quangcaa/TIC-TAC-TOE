@@ -1,4 +1,4 @@
-#include "displayResImage.h"
+#include "headers/display.h"
 
 void displayResImage(int p)
 {
@@ -49,7 +49,7 @@ void displayResImage(int p)
                 {
                     run() ;
                 }
-                else if(x>=SCREEN_WIDTH-56 && x<=SCREEN_WIDTH && y>=BOARD_HEIGHT+2 && y<=SCREEN_HEIGHT-2) //reset position
+                else if(x>=SCREEN_WIDTH-56-2 && x<=SCREEN_WIDTH && y>=BOARD_HEIGHT+2 && y<=SCREEN_HEIGHT-2) //reset position
                 {
                     x_score = 0 ; 
                     o_score = 0 ;

@@ -7,7 +7,7 @@
 
 extern SDL_Renderer *renderer ;
 extern SDL_Window *window ; 
-extern Player board[][3] ;
+extern Player board[][15] ;
 
 void initSDL() ;
 void resetBoard() ;
