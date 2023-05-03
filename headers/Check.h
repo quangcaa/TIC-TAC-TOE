@@ -1,6 +1,6 @@
 #pragma once 
 #include <iostream>
-#include "global.h"
+#include "Global.h"
 
 extern Player board[][15] ;
 

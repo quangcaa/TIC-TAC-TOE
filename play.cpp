@@ -1,5 +1,4 @@
-#include "headers/play.h"
-#include "headers/AI.h"
+#include "Headers/Play.h"
 
 void handleVsComputer(SDL_Event event)
 {
@@ -8,26 +7,27 @@ void handleVsComputer(SDL_Event event)
 
     if(currentPlayer == computer)
     {
-        if(event.type == SDL_QUIT || event.key.keysym.scancode == SDL_SCANCODE_ESCAPE) //quit game
+        if(event.type==SDL_QUIT || event.key.keysym.scancode==SDL_SCANCODE_ESCAPE) //quit game
         {
             running = false ;
         }
         else
         {
-            pair<int,int> best = get_best_move(board) ;
-            board[best.first][best.second] = computer ;
+            best_move(board) ;
 
             if(checkWin(currentPlayer))
             {
-                resetBoard() ; //clear board
-                o_score += 1 ; //update score
-                displayResImage(2) ; //show result
+                o_score += 1 ;              //update score
+                draw() ;
+                displayResImage(2) ;        //show result
+                resetBoard() ;              //clear board                
                 currentPlayer = Player::X ; //set for new round
             }
             else if(checkTie() == BOARD_SIZE*BOARD_SIZE)
             {
-                resetBoard() ; //clear board 
-                displayResImage(0) ; //show result
+                draw() ;
+                displayResImage(0) ;        //show result
+                resetBoard() ;              //clear board                 
                 currentPlayer = Player::X ; //set for new round
             }
             else
@@ -38,7 +38,7 @@ void handleVsComputer(SDL_Event event)
     }
     else
     {
-        if(event.type == SDL_QUIT || event.key.keysym.scancode == SDL_SCANCODE_ESCAPE) // quit game
+        if(event.type==SDL_QUIT || event.key.keysym.scancode==SDL_SCANCODE_ESCAPE) // quit game
         {
             running = false ;
         }
@@ -58,15 +58,17 @@ void handleVsComputer(SDL_Event event)
 
                     if(checkWin(currentPlayer))
                     {
-                        resetBoard() ;
                         x_score += 1 ;
+                        draw() ;
                         displayResImage(1) ;
+                        resetBoard() ;
                         currentPlayer = Player::X ;
                     }
                     else if(checkTie() == BOARD_SIZE*BOARD_SIZE)
                     {
-                        resetBoard() ;
+                        draw() ;
                         displayResImage(0) ;
+                        resetBoard() ;
                         currentPlayer = Player::X ;
                     }
                     else
@@ -95,7 +97,7 @@ void handleVsPlayer(SDL_Event event)
 {
     static Player currentPlayer = Player::X ;
 
-    if(event.type == SDL_QUIT || event.key.keysym.sym == SDL_SCANCODE_ESCAPE)
+    if(event.type==SDL_QUIT || event.key.keysym.sym==SDL_SCANCODE_ESCAPE)
     {
         running = false ;
     }
@@ -115,25 +117,27 @@ void handleVsPlayer(SDL_Event event)
 
                 if(checkWin(currentPlayer))
                 {
-                    resetBoard() ;
-
                     if(currentPlayer == Player::X)
                     {                  
                         x_score += 1 ;
+                        draw() ;
                         displayResImage(1) ;
                     }
                     else
                     {
                         o_score += 1 ;
+                        draw() ;
                         displayResImage(2) ;
                     }
                 
+                    resetBoard() ;
                     currentPlayer = Player::X ; //set first player to X in new game 
                 }
                 else if(checkTie() == BOARD_SIZE*BOARD_SIZE)
                 {
-                    resetBoard() ;
+                    draw() ;
                     displayResImage(0) ;
+                    resetBoard() ;
                     currentPlayer = Player::X ;
                 }
                 else

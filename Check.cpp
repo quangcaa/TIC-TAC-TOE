@@ -1,4 +1,4 @@
-#include "headers/gameOver.h"
+#include "Headers/Check.h"
 
 bool checkTie()
 {
@@ -17,14 +17,14 @@ bool checkTie()
 
 bool checkWin(Player player)
 {
-    for(int i=0 ; i<BOARD_SIZE ; i++) //check rows for win
+    for(int i=0 ; i<BOARD_SIZE ; i++) //check rows
     {
         for(int j=0 ; j<BOARD_SIZE-WIN_SIZE ; j++)
         {
             if(board[i][j] == player)
             {
                 bool win = true ;
-                for(int k=1 ; k<WIN_SIZE ; k++)
+                for(int k=0 ; k<WIN_SIZE ; k++)
                 {
                     if(board[i][j+k] != player)
                     {
@@ -40,15 +40,14 @@ bool checkWin(Player player)
         }
     }
 
-    //check columns
-    for(int j=0 ; j<BOARD_SIZE ; j++)
+    for(int j=0 ; j<BOARD_SIZE ; j++) //check columns
     {
         for(int i=0 ; i<BOARD_SIZE-WIN_SIZE ; i++)
         {
             if(board[i][j] == player)
             {
                 bool win = true ;
-                for(int k=1 ; k<WIN_SIZE ; k++)
+                for(int k=0 ; k<WIN_SIZE ; k++)
                 {
                     if(board[i+k][j] != player)
                     {
@@ -64,12 +63,12 @@ bool checkWin(Player player)
         }
     }
 
-    for(int i=0 ; i<BOARD_SIZE-WIN_SIZE ; i++) //check main diagonal
+    for(int i=0 ; i<BOARD_SIZE-WIN_SIZE ; i++) //check main diagonals
     {
         for(int j=0 ; j<BOARD_SIZE-WIN_SIZE ; j++)
         {
             bool win = true ;
-            for(int k=1 ; k<WIN_SIZE ; k++)
+            for(int k=0 ; k<WIN_SIZE ; k++)
             {
                 if (board[i+k][j+k] != player)
                 {
@@ -84,7 +83,7 @@ bool checkWin(Player player)
         }
     }
 
-    for(int i=0 ; i<BOARD_SIZE-WIN_SIZE ; i++) //check anti diagonal
+    for(int i=0 ; i<BOARD_SIZE-WIN_SIZE ; i++) //check anti diagonals
     {
         for(int j=WIN_SIZE-1 ; j<BOARD_SIZE ; j++)
         {

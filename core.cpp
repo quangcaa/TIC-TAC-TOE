@@ -1,4 +1,4 @@
-#include "headers/core.h"
+#include "Headers/Core.h"
 
 void initSDL()
 {
@@ -31,7 +31,7 @@ void closeSDL()
 
 void loadIcon()
 {
-    SDL_Surface *icon = IMG_Load("image/icon.png") ; //load the icon image
+    SDL_Surface *icon = IMG_Load("Image/Icon.png") ; //load the icon image
 
     SDL_SetWindowIcon(window, icon) ; //set the icon of the window
 

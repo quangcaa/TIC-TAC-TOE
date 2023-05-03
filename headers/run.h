@@ -1,14 +1,16 @@
 #pragma once
 #include <SDL.h>
-#include <vector>
 #include <iostream>
-#include <cmath>
-#include "draw.h"
-#include "mode.h"
-#include "global.h"
-#include "sideBar.h"
-#include "play.h"
-#include "core.h"
+#include <string>
+#include "Draw.h"
+#include "Mode.h"
+#include "Core.h"
+#include "Play.h"
+#include "Global.h"
 using namespace std ;
 
+extern int x_score , o_score ;
+extern bool running ;
+
 void run() ;
+ 

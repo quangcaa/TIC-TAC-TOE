@@ -1,8 +1,8 @@
-#include "headers/mode.h"
+#include "Headers/Mode.h"
 
 void modegame(string &mode)
 {
-    SDL_Surface* image = IMG_Load("image/mode.png") ; //load the mode selection image
+    SDL_Surface* image = IMG_Load("Image/Mode.png") ; //load the mode selection image
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer , image) ;
     SDL_FreeSurface(image) ;
 
@@ -16,7 +16,7 @@ void modegame(string &mode)
     {
         while(SDL_PollEvent(&event))
         {
-            if(event.type == SDL_QUIT || event.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
+            if(event.type==SDL_QUIT || event.key.keysym.scancode==SDL_SCANCODE_ESCAPE)
             {
                 running = false ;
                 clicked = true ;

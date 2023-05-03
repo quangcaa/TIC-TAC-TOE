@@ -1,5 +1,5 @@
 #pragma once 
-#include "player.h"
+#include "Player.h"
 
 //screen dimensions
 const int SCREEN_WIDTH = 660 ;
@@ -22,3 +22,4 @@ const int RESET_SCORE_SIZE = 56 ;
 const int SCORE_HEIGHT = 30 ;
 const int SCORE_WIDTH_1 = 18 ;
 const int SCORE_WIDTH_2 = 36 ;
+

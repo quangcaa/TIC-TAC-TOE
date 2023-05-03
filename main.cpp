@@ -2,13 +2,18 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <iostream>
-#include "headers/core.h"
-#include "headers/draw.h"
-#include "headers/gameOver.h"
-#include "headers/display.h"
-#include "headers/mode.h"
-#include "headers/play.h"
-#include "headers/run.h"
+#include "Headers/Check.h"
+#include "Headers/Computer.h"
+#include "Headers/Core.h"
+#include "Headers/Draw.h"
+#include "Headers/Global.h"
+#include "Headers/Mode.h"
+#include "Headers/Play.h"
+#include "Headers/Player.h"
+#include "Headers/Result.h"
+#include "Headers/Run.h"
+#include "headers/SideBar.h"
+
 using namespace std ;
 
 SDL_Window *window = nullptr ;

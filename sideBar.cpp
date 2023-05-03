@@ -1,8 +1,8 @@
-#include "headers/sideBar.h"
+#include "Headers/SideBar.h"
 
 void homeBut()
 {
-    SDL_Surface* image = IMG_Load("image/home_button.png") ;
+    SDL_Surface* image = IMG_Load("Image/SB_Home.png") ;
     SDL_Texture* tx = SDL_CreateTextureFromSurface(renderer , image) ;
 
     SDL_Rect rBut = {0 , BOARD_HEIGHT+2 , RETURN_BUTTON_SIZE , RETURN_BUTTON_SIZE} ;
@@ -15,7 +15,7 @@ void homeBut()
 
 void scoreBoard()
 {
-    SDL_Surface* image = IMG_Load("image/score_board.png") ;
+    SDL_Surface* image = IMG_Load("Image/SB_ScoreBoard.png") ;
     SDL_Texture* tx = SDL_CreateTextureFromSurface(renderer , image) ;
 
     SDL_Rect sB = {(SCREEN_WIDTH/2)-100 , BOARD_HEIGHT+2 , SCORE_BOARD_WIDTH , SCORE_BOARD_HEIGHT} ;
@@ -28,7 +28,7 @@ void scoreBoard()
 
 void scoring()
 {
-    font = TTF_OpenFont("font/score.ttf" , SCORE_HEIGHT) ; //load font 
+    font = TTF_OpenFont("Font/Score.ttf" , SCORE_HEIGHT) ; //load font 
 
     const char *x = to_string(x_score).c_str() ; // X
     SDL_Surface *scoreX_surface = TTF_RenderText_Solid(font , x , {255,255,255}) ; 
@@ -70,7 +70,7 @@ void scoring()
 
 void resetScore()
 {
-    SDL_Surface* image = IMG_Load("image/reset_button.png") ;
+    SDL_Surface* image = IMG_Load("Image/SB_Reset.png") ;
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer , image) ;
     SDL_FreeSurface(image) ;
 

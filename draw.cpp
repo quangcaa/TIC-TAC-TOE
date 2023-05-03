@@ -1,8 +1,8 @@
-#include "headers/draw.h"
+#include "Headers/Draw.h"
 
 void drawX(SDL_Renderer *renderer , int x , int y , int size)
 {
-    SDL_Surface *X = IMG_Load("image/X.png") ;
+    SDL_Surface *X = IMG_Load("Image/IM_X.png") ;
     SDL_Texture *tx = SDL_CreateTextureFromSurface(renderer , X) ;
 
     SDL_Rect Xrect = {x+2 , y+2 , 40 , 40 } ;
@@ -15,7 +15,7 @@ void drawX(SDL_Renderer *renderer , int x , int y , int size)
 
 void drawO(SDL_Renderer* renderer, int x, int y, int size)
 {
-    SDL_Surface *O = IMG_Load("image/O.png") ;
+    SDL_Surface *O = IMG_Load("Image/IM_O.png") ;
     SDL_Texture *tx = SDL_CreateTextureFromSurface(renderer , O) ;
 
     SDL_Rect Orect = {x+2 , y+2 , 40 , 40 } ;
@@ -28,7 +28,7 @@ void drawO(SDL_Renderer* renderer, int x, int y, int size)
 
 void draw()
 {
-    SDL_SetRenderDrawColor(renderer, 153 , 102 , 203 , 255) ; //background color
+    SDL_SetRenderDrawColor(renderer , 153 , 102 , 203 , 255) ; //background color
     SDL_RenderClear(renderer) ;
 
     SDL_SetRenderDrawColor(renderer , 111 , 45 , 168 , 255) ; //line color
@@ -39,7 +39,7 @@ void draw()
             for(int j=0 ; j<3 ; j++) //draw line with width 3 pixel
             {
                 SDL_RenderDrawLine(renderer , i*CELL_SIZE+j , 0 , i*CELL_SIZE+j , BOARD_HEIGHT) ; //column 
-                SDL_RenderDrawLine(renderer, 0, i*CELL_SIZE+j , BOARD_WIDTH , i*CELL_SIZE+j ) ; //row 
+                SDL_RenderDrawLine(renderer , 0, i*CELL_SIZE+j , BOARD_WIDTH , i*CELL_SIZE+j) ;   //row 
             }
         }
         else if(i==BOARD_SIZE)
@@ -47,7 +47,7 @@ void draw()
             for(int j=-3 ; j<0 ; j++) //draw line with width 3 pixel
             {
                 SDL_RenderDrawLine(renderer , i*CELL_SIZE+j , 0 , i*CELL_SIZE+j , BOARD_HEIGHT) ; //column 
-                SDL_RenderDrawLine(renderer, 0, i*CELL_SIZE+j , BOARD_WIDTH , i*CELL_SIZE+j ) ; //row 
+                SDL_RenderDrawLine(renderer, 0, i*CELL_SIZE+j , BOARD_WIDTH , i*CELL_SIZE+j ) ;   //row 
             }
         }
         else
@@ -55,7 +55,7 @@ void draw()
             for(int j=-1 ; j<=1 ; j++) //draw line with width 3 pixel
             {
                 SDL_RenderDrawLine(renderer , i*CELL_SIZE+j , 0 , i*CELL_SIZE+j , BOARD_HEIGHT) ; //column 
-                SDL_RenderDrawLine(renderer, 0, i*CELL_SIZE+j , BOARD_WIDTH , i*CELL_SIZE+j ) ; //row 
+                SDL_RenderDrawLine(renderer, 0, i*CELL_SIZE+j , BOARD_WIDTH , i*CELL_SIZE+j ) ;   //row 
             }
         }
     }
@@ -82,7 +82,6 @@ void draw()
     homeBut() ;
     scoreBoard() ;
     resetScore() ;
-
     scoring() ;
 
     SDL_RenderPresent(renderer) ;

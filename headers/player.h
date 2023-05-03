@@ -2,7 +2,7 @@
 
 enum class Player
 {
-    None,
+    None ,
     X,
     O
 };
