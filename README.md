@@ -1,8 +1,7 @@
 # Tic-Tac-Toe
 
 ## About 
-A game of [Tic-Tac-Toe](https://en.wikipedia.org/wiki/Tic-tac-toe) version 15x15 created by NguyenVietQuang in C++ with [Simple DirectMedia Layer version 2](https://www.libsdl.org/) . The game is designed to be played either against a computer opponent or another human player . ![introduce](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTYwOGFhZTcwNTA0ODIwYTNhMDYzNGE3MTMzNTU1MzY4MTA3Mjc1MiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/Pnp1z9EMemhmoEQWnt/giphy.gif)
-
+A game of [Tic-Tac-Toe](https://en.wikipedia. org/wiki/Tic-tac-toe) version 15x15 created by NguyenVietQuang in C++ with [Simple DirectMedia Layer version 2](https://www.libsdl.org/) . The game is designed to be played either against a computer opponent or another human player . ![introduce](https://media2.giphy.com/media/bisarjO1dzKFpNLy45/giphy.gif?cid=2154d3d7d4ea38d9dfc0776fc1876ac1806f4e61fb415089&ep=v1_gifs_username_username&rid=giphy.gif&ct=g) 
 ## Features 
 - Two game modes : "vs Computer" and "vs Player"
 - Unbeatable computer opponent 
