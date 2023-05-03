@@ -1,7 +1,8 @@
 # Tic-Tac-Toe
 
 ## About 
-A game of [Tic-Tac-Toe](https://en.wikipedia.org/wiki/Tic-tac-toe) version 15x15 created by NguyenVietQuang in C++ with [Simple DirectMedia Layer version 2](https://www.libsdl.org/) . <br> [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/https://youtu.be/a3nh0BAky9I/0.jpg)](https://www.youtube.com/watch?v=https://youtu.be/a3nh0BAky9I)
+A game of [Tic-Tac-Toe](https://en.wikipedia.org/wiki/Tic-tac-toe) version 15x15 created by NguyenVietQuang in C++ with [Simple DirectMedia Layer version 2](https://www.libsdl.org/) . <br> [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/a3nh0BAky9I/0.jpg)](https://www.youtube.com/watch?v=a3nh0BAky9I)
+
 
 ## How to Play
 This game can be played by up to 2 players .<br>
