@@ -3,7 +3,6 @@
 ## About 
 A game of [Tic-Tac-Toe](https://en.wikipedia.org/wiki/Tic-tac-toe) version 15x15 created by NguyenVietQuang in C++ with [Simple DirectMedia Layer version 2](https://www.libsdl.org/) . The game is designed to be played either against a computer opponent or another human player . ![introduce](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTYwOGFhZTcwNTA0ODIwYTNhMDYzNGE3MTMzNTU1MzY4MTA3Mjc1MiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/Pnp1z9EMemhmoEQWnt/giphy.gif)
 
-
 ## Features 
 - Two game modes : "vs Computer" and "vs Player"
 - Unbeatable computer opponent 
