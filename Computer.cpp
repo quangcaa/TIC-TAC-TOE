@@ -629,12 +629,8 @@ int checkNeighbor(int i , int j , Player board[][15])
 
 void best_move(Player board[][15])
 {
-    int x = 0 ;
-    int y = 0 ;
-    int x2 = 0 ;
-    int y2 = 0 ;
-    int max = 0 ;
-    int max2 = 0 ;
+    int rowO = 0 , colO = 0 , maxO = 0 ;
+    int rowX = 0 , colX = 0 , maxX = 0 ;
 
     for(int i=0 ; i<BOARD_SIZE ; i++)
     {
@@ -643,14 +639,14 @@ void best_move(Player board[][15])
             if(board[i][j] == Player::None)
             {
                 if(checkNeighbor(i , j , board) && 
-                  (score_1(i,j,Player::O,board)+score_2(i,j,Player::O,board)+score_3(i,j,Player::O,board)+score_4(i,j,Player::O,board)) >= max)
+                  (score_1(i,j,Player::O,board)+score_2(i,j,Player::O,board)+score_3(i,j,Player::O,board)+score_4(i,j,Player::O,board)) >= maxO)
                 {
-                    max = score_1(i , j , Player::O , board) +
+                    maxO = score_1(i , j , Player::O , board) +
                           score_2(i , j , Player::O , board) +
                           score_3(i , j , Player::O , board) +
                           score_4(i , j , Player::O , board) ;
-                    x = i ;
-                    y = j ;
+                    rowO = i ;
+                    colO = j ;
                 }
             }
         }
@@ -663,25 +659,25 @@ void best_move(Player board[][15])
             if(board[i][j] == Player::None)
             {
                 if(checkNeighbor(i , j , board) && 
-                  (score_1(i,j,Player::X,board)+score_2(i,j,Player::X,board)+score_3(i,j,Player::X,board)+score_4(i,j,Player::X,board)) >= max2)
+                  (score_1(i,j,Player::X,board)+score_2(i,j,Player::X,board)+score_3(i,j,Player::X,board)+score_4(i,j,Player::X,board)) >= maxX)
                 {
-                    max2 = score_1(i , j , Player::X , board) +
+                    maxX = score_1(i , j , Player::X , board) +
                            score_2(i , j , Player::X , board) +
                            score_3(i , j , Player::X , board) +
                            score_4(i , j , Player::X , board) ;
-                    x2 = i ;
-                    y2 = j ;
+                    rowX = i ;
+                    colX = j ;
                 }
             }
         }
     }
 
-    if(max >= max2)
+    if(maxO >= maxX)
     {
-        board[x][y] = Player::O ;
+        board[rowO][colO] = Player::O ;
     }
     else
     {
-        board[x2][y2] = Player::O ;
+        board[rowX][colX] = Player::O ;
     }
 }
