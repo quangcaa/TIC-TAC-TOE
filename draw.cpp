@@ -1,28 +1,16 @@
 #include "Headers/Draw.h"
 
-void drawX(SDL_Renderer *renderer , int x , int y , int size)
+void drawX(SDL_Renderer *renderer , SDL_Texture *txX , int x , int y , int size)
 {
-    SDL_Surface *X = IMG_Load("Image/IM_X.png") ;
-    SDL_Texture *tx = SDL_CreateTextureFromSurface(renderer , X) ;
-
     SDL_Rect Xrect = {x+2 , y+2 , 40 , 40 } ;
-    SDL_RenderCopy(renderer , tx , nullptr , &Xrect) ;
-
-    SDL_DestroyTexture(tx) ;
-    SDL_FreeSurface(X) ;
+    SDL_RenderCopy(renderer , txX , nullptr , &Xrect) ;
 }
 
 
-void drawO(SDL_Renderer* renderer, int x, int y, int size)
+void drawO(SDL_Renderer* renderer , SDL_Texture *txO , int x, int y, int size)
 {
-    SDL_Surface *O = IMG_Load("Image/IM_O.png") ;
-    SDL_Texture *tx = SDL_CreateTextureFromSurface(renderer , O) ;
-
     SDL_Rect Orect = {x+2 , y+2 , 40 , 40 } ;
-    SDL_RenderCopy(renderer , tx , nullptr , &Orect) ;
-
-    SDL_DestroyTexture(tx) ;
-    SDL_FreeSurface(O) ;
+    SDL_RenderCopy(renderer , txO , nullptr , &Orect) ;
 }
 
 
@@ -68,13 +56,13 @@ void draw()
             {
                 int cellX = i * CELL_SIZE ; //get position
                 int cellY = j * CELL_SIZE ; 
-                drawX(renderer , cellX , cellY , CELL_SIZE) ;
+                drawX(renderer , txX , cellX , cellY , CELL_SIZE) ;
             }
             else if (board[i][j] == Player::O)
             {
                 int cellX = i * CELL_SIZE ; //get position
                 int cellY = j * CELL_SIZE ;
-                drawO(renderer , cellX , cellY , CELL_SIZE) ;
+                drawO(renderer , txO , cellX , cellY , CELL_SIZE) ;
             }
         }
     }
@@ -84,5 +72,5 @@ void draw()
     resetScore() ;
     scoring() ;
 
-    SDL_RenderPresent(renderer) ;
+    SDL_RenderPresent(renderer) ; //update the screen
 }

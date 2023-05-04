@@ -12,5 +12,7 @@ using namespace std ;
 extern int x_score , o_score ;
 extern bool running ;
 
+extern bool click_home ;
+
 void run() ;
  

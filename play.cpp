@@ -79,7 +79,11 @@ void handleVsComputer(SDL_Event event)
             }
             else if(x>=0 && x<=RETURN_BUTTON_SIZE && y>=BOARD_HEIGHT+2 && y<=SCREEN_HEIGHT-2) //home position
             {
-                run() ;
+                x_score = 0 ;
+                o_score = 0 ;
+                resetBoard() ;
+
+                clicked_home = true ;
             }
             else if(x>=SCREEN_WIDTH-56-2 && x<=SCREEN_WIDTH && y>=BOARD_HEIGHT+2 && y<=SCREEN_HEIGHT-2) //reset position
             {
@@ -149,7 +153,11 @@ void handleVsPlayer(SDL_Event event)
         else if(x>=0 && x<=RETURN_BUTTON_SIZE && y>=BOARD_HEIGHT+2 && y<=SCREEN_HEIGHT-2) //home position
         {
             currentPlayer = Player::X ;
-            run() ;
+            x_score = 0 ;
+            o_score = 0 ;
+            resetBoard() ;
+
+            clicked_home = true ;
         }
         else if(x>=SCREEN_WIDTH-56 && x<=SCREEN_WIDTH && y>=BOARD_HEIGHT+2 && y<=SCREEN_HEIGHT-2) //reset position
         {

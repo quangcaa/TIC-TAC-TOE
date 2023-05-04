@@ -8,6 +8,7 @@
 extern SDL_Window *window ;
 extern SDL_Renderer *renderer ;
 extern Player board[][15] ;
+extern SDL_Texture *txX , *txO , *txHB , *txSB , *txRSB ;
 
 void initSDL() ;
 void resetBoard() ;

@@ -13,8 +13,8 @@
 # clean:
 # 	rm -f TicTacToe.exe
 
-all:
-	g++ -ISrc/include -LSrc/lib -o main main.cpp Core.cpp \
+TicTacToe: main.cpp
+	g++ -ISrc/include -LSrc/lib -o TicTacToe main.cpp Core.cpp \
 	Run.cpp Draw.cpp SideBar.cpp Result.cpp \
 	Mode.cpp Play.cpp Check.cpp Computer.cpp \
 	-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer

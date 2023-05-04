@@ -2,27 +2,15 @@
 
 void homeBut()
 {
-    SDL_Surface* image = IMG_Load("Image/SB_Home.png") ;
-    SDL_Texture* tx = SDL_CreateTextureFromSurface(renderer , image) ;
-
     SDL_Rect rBut = {0 , BOARD_HEIGHT+2 , RETURN_BUTTON_SIZE , RETURN_BUTTON_SIZE} ;
-    SDL_RenderCopy(renderer , tx , NULL , &rBut) ;
-
-    SDL_FreeSurface(image) ;
-    SDL_DestroyTexture(tx) ;
+    SDL_RenderCopy(renderer , txHB , NULL , &rBut) ;
 }
 
 
 void scoreBoard()
 {
-    SDL_Surface* image = IMG_Load("Image/SB_ScoreBoard.png") ;
-    SDL_Texture* tx = SDL_CreateTextureFromSurface(renderer , image) ;
-
     SDL_Rect sB = {(SCREEN_WIDTH/2)-100 , BOARD_HEIGHT+2 , SCORE_BOARD_WIDTH , SCORE_BOARD_HEIGHT} ;
-    SDL_RenderCopy(renderer , tx , NULL , &sB) ;
-
-    SDL_FreeSurface(image) ;
-    SDL_DestroyTexture(tx) ;
+    SDL_RenderCopy(renderer , txSB , NULL , &sB) ;
 }
 
 
@@ -70,12 +58,6 @@ void scoring()
 
 void resetScore()
 {
-    SDL_Surface* image = IMG_Load("Image/SB_Reset.png") ;
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer , image) ;
-    SDL_FreeSurface(image) ;
-
     SDL_Rect rS = {SCREEN_WIDTH-56-2 , BOARD_HEIGHT+2 , RESET_SCORE_SIZE , RESET_SCORE_SIZE} ;
-    SDL_RenderCopy(renderer , texture , NULL , &rS) ;
-
-    SDL_DestroyTexture(texture) ;
+    SDL_RenderCopy(renderer , txRSB , NULL , &rS) ;
 }

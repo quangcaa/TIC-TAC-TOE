@@ -20,12 +20,19 @@ SDL_Window *window = nullptr ;
 SDL_Renderer *renderer = nullptr ;
 TTF_Font *font = nullptr ;
 
+SDL_Texture *txX = nullptr ;
+SDL_Texture *txO = nullptr ;
+SDL_Texture *txHB = nullptr ;
+SDL_Texture *txSB = nullptr ;
+SDL_Texture *txRSB = nullptr ;
+
 Player board[15][15] ;
 
 int x_score = 0 ;
 int o_score = 0 ;
 
 bool running = true ;
+bool clicked_home ;
 
 int main(int argc, char *argv[])
 {

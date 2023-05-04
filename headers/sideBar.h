@@ -10,6 +10,7 @@ using namespace std ;
 extern SDL_Renderer *renderer ;
 extern TTF_Font *font ;
 extern int x_score , o_score ;
+extern SDL_Texture *txHB , *txSB , *txRSB ;
 
 void homeBut() ;
 void scoreBoard() ;
